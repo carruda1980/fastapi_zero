@@ -3,7 +3,7 @@ from http import HTTPStatus
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-from fastapi_zero.schemas import Message
+from fastapi_zero.schemas import Message, UserPublic, UserSchema
 
 app = FastAPI()
 
@@ -24,3 +24,7 @@ def exercicio_html():
         <h1> Olá html </h1>
       </body>
     </html>"""
+
+
+@app.post('/users/', status_code=HTTPStatus.CREATED, response_model=UserPublic)
+def create_user(user: UserSchema): ...
