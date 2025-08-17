@@ -3,10 +3,10 @@ from datetime import datetime
 from sqlalchemy import func
 from sqlalchemy.orm import Mapped, mapped_column, registry
 
-table_registy = registry()
+table_registry = registry()
 
 
-@table_registy.mapped_as_dataclass
+@table_registry.mapped_as_dataclass
 class User:
     __tablename__ = 'users'
     id: Mapped[int] = mapped_column(init=False, primary_key=True)
